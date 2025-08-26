@@ -1,0 +1,5 @@
+DB_HOST=localhost
+DB_NAME=site_contato
+DB_USER=site_user
+DB_PASS=senha_segura_aqui
+DB_PORT=3306
