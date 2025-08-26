@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site de Contato</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header>
+    <h1>Site de Contato</h1>
+    <nav><a href="index.html">Home</a> | <a href="listar.php">Mensagens</a></nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Envie sua mensagem</h2>
+      <form id="form-contato" action="contato.php" method="post">
+        <label>Nome:<input name="nome" type="text" required maxlength="100" /></label>
+        <label>Email:<input name="email" type="email" required maxlength="255" /></label>
+        <label>Mensagem:<textarea name="mensagem" required maxlength="2000"></textarea></label>
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
