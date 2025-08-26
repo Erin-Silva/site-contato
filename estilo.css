@@ -1,0 +1,6 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;max-width:900px;margin:2rem auto;padding:0 1rem;color:#222}
+header{display:flex;justify-content:space-between;align-items:center}
+form{display:flex;flex-direction:column;gap:.5rem;max-width:480px}
+label{display:flex;flex-direction:column;font-size:.95rem}
+input,textarea{padding:.5rem;border:1px solid #ccc;border-radius:4px}
+button{padding:.6rem 1rem;background:#0b79d0;color:#fff;border:none;border-radius:4px;cursor:pointer}
