@@ -10,7 +10,7 @@ if (file_exists(__DIR__ . '/db/.env')) {
     }
 }
 
-$host = getenv('DB_HOST') ?: 'ec2-13-223-54-115.compute-1.amazonaws.com';
+$host = getenv('DB_HOST') ?: 'localhost';
 $db   = getenv('DB_NAME') ?: 'site_contato';
 $user = getenv('DB_USER') ?: 'root';
 $pass = getenv('DB_PASS') ?: 'ifsp';
