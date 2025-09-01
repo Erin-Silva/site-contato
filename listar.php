@@ -9,10 +9,10 @@ if (file_exists(__DIR__ . '/db/.env')) {
     }
 }
 
-$host = getenv('DB_HOST') ?: '127.0.0.1';
+$host = getenv('DB_HOST') ?: 'ec2-13-223-54-115.compute-1.amazonaws.com';
 $db   = getenv('DB_NAME') ?: 'site_contato';
-$user = getenv('DB_USER') ?: 'site_user';
-$pass = getenv('DB_PASS') ?: '';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASS') ?: 'ifsp';
 $port = getenv('DB_PORT') ?: '3306';
 
 $dsn = "mysql:host=$host;dbname=$db;port=$port;charset=utf8mb4";
