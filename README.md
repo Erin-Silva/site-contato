@@ -21,13 +21,13 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y git apache2 php php-mysql php-mbstring php-xml mariadb-server
 ```
 
-4) Habilitar e iniciar Apache e mariadb
+3) Habilitar e iniciar Apache e mariadb
 ```bash
 sudo systemctl enable --now apache2
 sudo systemctl enable --now mariadb
 ```
 
-5) Preparar /var/www e clonar repositório
+4) Preparar /var/www e clonar repositório
 ```bash
 # Remover arquivos padrões, se necessário
 sudo rm -rf /var/www/html/*
@@ -45,7 +45,7 @@ sudo mysql_secure_installation
 (escolher password)
 ```
 
-6) Criar banco e usuário no MariaDB (entrar como root)
+5) Criar banco e usuário no MariaDB (entrar como root)
 ```bash
 sudo mysql -u root -p
 -- então no prompt do MariaDB execute (substitua senha_segura_aqui por uma senha forte):
@@ -57,14 +57,14 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-7) Importar schema (arquivo squema.sql que está na raiz do repositório)
+6) Importar schema (arquivo squema.sql que está na raiz do repositório)
 ```bash
 sudo mysql -u root -p site_contato < /var/www/html/squema.sql
 # ou, dentro do cliente mysql:
 # SOURCE /var/www/html/squema.sql;
 ```
 
-8) Criar arquivo de variáveis DB (db/.env) e ajustar permissões
+7) Criar arquivo de variáveis DB (db/.env) e ajustar permissões
 ```bash
 # Conteúdo sugerido para /var/www/html/db/.env (não comitar)
 DB_HOST=localhost
@@ -74,7 +74,7 @@ DB_PASS=senha_segura_aqui
 DB_PORT=3306
 ```
 
-# Permissões
+8) Permissões
 ```bash
 sudo chown www-data:www-data /var/www/html/db/.env
 sudo chmod 640 /var/www/html/db/.env
