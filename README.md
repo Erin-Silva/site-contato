@@ -86,6 +86,41 @@ Abra no navegador: http://IP_DA_INSTANCIA/
 Teste enviar mensagem (index.html -> contato.php) e verifique em listar.php.
 ```
 
+9) Ativar https
+```bash
+#Instale openssl e mod_ssl (módulo SSL do Apache)
+sudo apt update  
+sudo apt install -y certbot python3-certbot-apache
+sudo apt install -y openssl apache2
+
+#Crie um certificado autoassinado
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+-keyout /etc/ssl/private/apache-selfsigned.key \
+-out /etc/ssl/certs/apache-selfsigned.crt
+
+#Crie uma nova configuração HTTPS para o Apache
+sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/site-contato-ssl.conf
+sudo nano /etc/apache2/sites-available/site-contato-ssl.conf
+
+#verifique no <VirtualHost *:443>
+ServerAdmin webmaster@localhost
+DocumentRoot /var/www/html
+
+SSLEngine on
+SSLCertificateFile /etc/ssl/certs/apache-selfsigned.crt
+SSLCertificateKeyFile /etc/ssl/private/apache-selfsigned.key
+
+ServerName ec2-13-223-54-115.compute-1.amazonaws.com
+
+#Verifique se o módulo SSL está habilitado
+sudo a2enmod ssl
+sudo systemctl restart apache2
+#Recarregue o Apache novamente
+sudo systemctl reload apache2
+
+
+```
+
 10) Diferenças importantes entre Amazon Linux 2023 e Ubuntu (resumo)
 ```bash
 - Gerenciador de pacotes:
